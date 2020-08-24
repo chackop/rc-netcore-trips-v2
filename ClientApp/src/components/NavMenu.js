@@ -28,7 +28,9 @@ const NavMenu = () => {
           </NavbarBrand>
           {isAuthenticated ? (
             <ul className="navbar-nav flex-grow">
-              <NavItem>{user.name}</NavItem>
+              <NavItem>
+                <NavLink className="text-dark">{user.name}</NavLink>
+              </NavItem>
               <NavItem>
                 <NavLink tag={Link} className="text-dark" to="/create">
                   Create
@@ -40,7 +42,10 @@ const NavMenu = () => {
                 </NavLink>
               </NavItem>
               <NavItem>
-                <button className="btn btn-danger" onClick={() => logout()}>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
                   Log out
                 </button>
               </NavItem>
